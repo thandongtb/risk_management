@@ -65,7 +65,7 @@ selected = st.checkbox("Có sử dụng ý kiến chuyên gia", True)
 if selected:
     st.subheader("Thông số kĩ thuật")
 
-    col1, col2, col3 = st.columns(3)
+    col1, col2, col3 = st.beta_columns(3)
 
     with col1:
         main_beat = st.selectbox(
@@ -129,7 +129,7 @@ anti_collision = st.selectbox(
     format_func=anti_collision_format_func,
 )
 
-col4, col5 = st.columns(2)
+col4, col5 = st.beta_columns(2)
 
 with col4:
     cross_object = st.selectbox(
@@ -147,7 +147,7 @@ with col5:
 
 st.subheader("Yếu tố khai thác vận hành")
 
-col6, col7 = st.columns(2)
+col6, col7 = st.beta_columns(2)
 
 with col6:
     start_year = st.number_input(
@@ -159,7 +159,7 @@ with col7:
         "Lưu lượng xe trung bình (xe/tháng)", min_value=1000, max_value=100000
     )
 
-col8, col9 = st.columns(2)
+col8, col9 = st.beta_columns(2)
 
 with col8:
     max_speed = st.number_input(
@@ -198,7 +198,7 @@ if submit is True:
 
         st.subheader("Kết quả đánh giá")
 
-        col9, col10, col11 = st.columns(3)
-        col9.metric("Yếu tố an toàn", "{} %".format(err))
-        col10.metric("Yếu tố khai thác vận hành", "{} %".format(round(sur * 100, 1)))
-        col11.metric("Dộ an toàn tổng thể", "{} %".format(total))
+        col9, col10, col11 = st.beta_columns(3)
+        col9.markdown(f"**Yếu tố an toàn**: {err} %")
+        col10.markdown(f"**Yếu tố khai thác vận hành**: {round(sur * 100, 1)} %")
+        col11.markdown(f"**Dộ an toàn tổng thể**: {total} %")
